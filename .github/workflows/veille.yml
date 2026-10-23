@@ -1,0 +1,32 @@
+name: Veille AO
+on:
+  schedule:
+    - cron: "0 5 * * 1-5"   # chaque jour ouvré, 5h UTC
+  workflow_dispatch:         # bouton "Run workflow" pour lancer à la main
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python veille_ao.py --jours 30
+      - run: mkdir site && cp veille_ao.html site/index.html && cp ao.json site/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.d.outputs.page_url }}
+    steps:
+      - id: d
+        uses: actions/deploy-pages@v4
+
