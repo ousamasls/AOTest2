@@ -1,0 +1,11 @@
+{
+  "_aide": "mots_cles : recherchés dans chaque source (un avis correspondant à n'importe lequel est retenu). termes_requis : au moins un doit figurer dans l'avis (liste vide = aucun filtre). termes_exclus : écarte l'avis s'il en contient un. flux_rss : URL de flux RSS/Atom. sources : boamp, ted, rss.",
+  "jours": 30,
+  "sources": ["boamp", "ted", "rss"],
+  "mots_cles": ["fourniture", "électricité", "enr", "agrégation"],
+  "termes_requis": ["électricité", "énergie", "enr", "renouvelable", "agrégation", "garantie d'origine", "ppa", "obligation d'achat"],
+  "termes_exclus": [],
+  "cpv_ted": ["09310000", "65300000", "09300000", "09330000"],
+  "flux_rss": [],
+  "grd": ["Enedis", "GRDF", "RTE", "Strasbourg Électricité Réseaux", "Électricité de Strasbourg", "SRD", "Gérédis", "SICAE", "Sorégies", "URM", "Régaz", "R-GDS", "Bordeaux Métropole Énergies"]
+}
